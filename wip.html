@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ribot Capital - Work in Progress</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional CSS for interactive cards */
+    .strategy-card {
+      position: relative;
+      background-color: #222;
+      border-radius: 10px;
+      padding: 20px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+      overflow: hidden;
+    }
+    .strategy-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .details p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    /* Hide extra details by default */
+    .extra-info {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+    /* Reveal extra details on hover */
+    .strategy-card:hover .extra-info {
+      opacity: 1;
+      max-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left" onclick="location.href='index.html';">
+      <img src="logo.png" alt="Logo">
+      <div class="company-name">Ribot Capital</div>
+    </div>
+    <div class="header-right">
+      <div class="user-icon" onclick="toggleUserMenu()">TD</div>
+    </div>
+  </header>
+
+  <!-- USER MENU (SIDE MENU) -->
+  <div id="userMenu" class="user-menu">
+    <h3>User Info</h3>
+    <!-- User Profile Section -->
+    <div class="profile-info">
+      <p><strong>Name:</strong> TD</p>
+      <p><strong>Role:</strong> Developer</p>
+      <p><strong>Assigned Project:</strong> <span class="assigned-project">Weather</span></p>
+    </div>
+    <h4>Navigation</h4>
+    <ul>
+      <li onclick="location.href='weather.html';">Weather</li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="section active">
+    <!-- Two big buttons at the top -->
+    <div class="button-group">
+      <button class="big-button" onclick="location.href='index.html';">Implemented Strategies</button>
+      <button class="big-button active" disabled>Work in Progress</button>
+    </div>
+
+    <!-- Project Cards -->
+    <div class="card-container">
+      <!-- Project Alpha: Quantum Volatility Arbitrage -->
+      <div class="strategy-card">
+        <h3>Project Alpha</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> Quantum Volatility Arbitrage leveraging quantum-inspired algorithms to forecast volatility.<br>
+            <strong>Team:</strong> AB<br>
+            <strong>Status:</strong> In Review
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Fine-tune quantum parameters.</p>
+            <p><strong>What Needed:</strong> Additional microstructure data.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Beta: Adaptive Statistical Arbitrage -->
+      <div class="strategy-card">
+        <h3>Project Beta</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> Adaptive Statistical Arbitrage using online ML for dynamic pair trading.<br>
+            <strong>Team:</strong> CD, EF<br>
+            <strong>Status:</strong> Development
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Implement real-time learning updates.</p>
+            <p><strong>What Needed:</strong> Robust data preprocessing pipeline.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Gamma: Momentum Neural Network -->
+      <div class="strategy-card">
+        <h3>Project Gamma</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> Momentum Trading strategy powered by deep neural networks to capture rapid trends.<br>
+            <strong>Team:</strong> GH, IJ, KL<br>
+            <strong>Status:</strong> Testing
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Validate model robustness across assets.</p>
+            <p><strong>What Needed:</strong> Alternative market training data.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Delta: Reinforcement Learning Mean Reversion -->
+      <div class="strategy-card">
+        <h3>Project Delta</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> Mean Reversion strategy enhanced with reinforcement learning for optimal entry/exit.<br>
+            <strong>Team:</strong> MN<br>
+            <strong>Status:</strong> In Progress
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Fine-tune reward functions.</p>
+            <p><strong>What Needed:</strong> More simulated trading environments.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Epsilon: High-Frequency Pair Trading -->
+      <div class="strategy-card">
+        <h3>Project Epsilon</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> High-frequency pair trading strategy exploiting microstructure signals.<br>
+            <strong>Team:</strong> OP, QR<br>
+            <strong>Status:</strong> Development
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Optimize latency and order execution.</p>
+            <p><strong>What Needed:</strong> Real-time market feed enhancements.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Zeta: Sentiment-Driven Event Trading -->
+      <div class="strategy-card">
+        <h3>Project Zeta</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> Event trading using NLP to capture market sentiment from news feeds.<br>
+            <strong>Team:</strong> ST<br>
+            <strong>Status:</strong> Planning
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Integrate live sentiment analysis.</p>
+            <p><strong>What Needed:</strong> Expanded news dataset and sentiment metrics.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Eta: AI-Driven Risk Parity -->
+      <div class="strategy-card">
+        <h3>Project Eta</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> Risk Parity strategy dynamically rebalanced using AI predictive models.<br>
+            <strong>Team:</strong> UV, WX<br>
+            <strong>Status:</strong> In Progress
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Refine risk forecasting models.</p>
+            <p><strong>What Needed:</strong> Broader historical risk factor data.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Theta: Transformer-based Macro Trend Prediction -->
+      <div class="strategy-card">
+        <h3>Project Theta</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> Using Transformer models to predict macroeconomic trends and adjust portfolios.<br>
+            <strong>Team:</strong> YZ<br>
+            <strong>Status:</strong> Testing
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Optimize model architecture and parameters.</p>
+            <p><strong>What Needed:</strong> Integration of global economic indicators.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Iota: Quant Options Trading via Skew Analysis -->
+      <div class="strategy-card">
+        <h3>Project Iota</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> Exploiting pricing inefficiencies in options markets through implied volatility skews.<br>
+            <strong>Team:</strong> AA, BB<br>
+            <strong>Status:</strong> In Review
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Develop dynamic hedging strategies.</p>
+            <p><strong>What Needed:</strong> Detailed options chain data.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Kappa: Event-Driven Liquidity Harvesting -->
+      <div class="strategy-card">
+        <h3>Project Kappa</h3>
+        <div class="details">
+          <p>
+            <strong>Description:</strong> Capturing liquidity imbalances during market events via real-time order flow analysis.<br>
+            <strong>Team:</strong> CC, DD, EE<br>
+            <strong>Status:</strong> Development
+          </p>
+          <div class="extra-info">
+            <p><strong>Next Steps:</strong> Enhance order flow and liquidity models.</p>
+            <p><strong>What Needed:</strong> High-resolution transaction data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

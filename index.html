@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ribot Capital - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Sticky Header */
+    .header {
+      background-color: #111; /* black bar */
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;  /* Sticky at top */
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Generic styles for strategy cards */
+    .strategy-card {
+      position: relative;
+      background-color: #222;
+      border-radius: 10px;
+      padding: 20px;
+      width: 350px; /* Increased width */
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+      overflow: hidden;
+      margin: 10px; /* uniform spacing */
+    }
+    .strategy-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Active strategy (Weather) styling */
+    .strategy-card.active-strategy {
+      border: 3px solid #39FF14;
+      box-shadow: 0 0 15px #39FF14;
+      transform: scale(1.02);
+    }
+    .strategy-card.active-strategy:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.4),
+        0 0 15px #39FF14;
+    }
+
+    .details p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Hide extra details by default */
+    .extra-info {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+    /* Reveal extra details on hover */
+    .strategy-card:hover .extra-info,
+    .strategy-card.active-strategy:hover .extra-info {
+      opacity: 1 !important;
+      max-height: 100px !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left" onclick="location.href='index.html';">
+      <img src="logo.png" alt="Logo" style="max-height: 70px; margin-right: 10px;">
+      <div class="company-name">Ribot Capital</div>
+    </div>
+    <div class="header-right">
+      <div class="user-icon" onclick="toggleUserMenu()">TD</div>
+    </div>
+  </header>
+
+  <!-- USER MENU (SIDE MENU) -->
+  <div id="userMenu" class="user-menu">
+    <h3>User Info</h3>
+    <div class="profile-info">
+      <p><strong>Name:</strong> TD</p>
+      <p><strong>Role:</strong> Developer</p>
+      <p><strong>Assigned Project:</strong> <span class="assigned-project">Weather</span></p>
+    </div>
+    <h4>Navigation</h4>
+    <ul>
+      <li onclick="location.href='weather.html';">Weather</li>
+      <!-- Add more items if needed -->
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="section active">
+    <!-- Two big buttons at the top -->
+    <div class="button-group">
+      <button class="big-button active" disabled>Implemented Strategies</button>
+      <button class="big-button" onclick="location.href='wip.html';">Work in Progress</button>
+    </div>
+
+    <!-- CARD CONTAINER -->
+    <div class="card-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <!-- Strategy 1 -->
+      <div class="strategy-card">
+        <h3>Volatility</h3>
+        <div class="details">
+          Capital Allocation: 9%<br>
+          Performance: +3.8%
+        </div>
+        <div class="svg-chart">
+          <svg width="240" height="50" viewBox="0 0 240 50" preserveAspectRatio="none">
+            <!-- Slight upward trend -->
+            <path d="M 0,30 L 40,25 L 80,20 L 120,25 L 160,15 L 200,20 L 240,10"
+                  fill="none" stroke="#39FF14" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="contributors-dashboard">Contributors: AB, CD</div>
+      </div>
+
+      <!-- Strategy 2 -->
+      <div class="strategy-card">
+        <h3>SAT</h3>
+        <div class="details">
+          Capital Allocation: 7%<br>
+          Performance: -1.8%
+        </div>
+        <div class="svg-chart">
+          <svg width="240" height="50" viewBox="0 0 240 50" preserveAspectRatio="none">
+            <path d="M 0,20 L 40,25 L 80,15 L 120,18 L 160,35 L 200,25 L 240,40"
+                  fill="none" stroke="#39FF14" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="contributors-dashboard">Contributors: EF, IJ</div>
+      </div>
+
+      <!-- Strategy 3: Weather (active) -->
+      <div class="strategy-card active-strategy" onclick="location.href='weather.html';">
+        <h3>Weather</h3>
+        <div class="details">
+          Capital Allocation: 8%<br>
+          Performance: +1.4%
+        </div>
+        <div class="svg-chart">
+          <svg width="240" height="50" viewBox="0 0 240 50" preserveAspectRatio="none">
+            <path d="M 0,35 L 40,30 L 80,25 L 120,28 L 160,20 L 200,15 L 240,10"
+                  fill="none" stroke="#39FF14" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="contributors-dashboard">Contributors: GH, TD</div>
+      </div>
+
+      <!-- Strategy 4 -->
+      <div class="strategy-card">
+        <h3>Backbone</h3>
+        <div class="details">
+          Capital Allocation: 36%<br>
+          Performance: +1.4%
+        </div>
+        <div class="svg-chart">
+          <svg width="240" height="50" viewBox="0 0 240 50" preserveAspectRatio="none">
+            <path d="M 0,25 L 40,20 L 80,25 L 120,24 L 160,25 L 200,23 L 240,20"
+                  fill="none" stroke="#39FF14" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="contributors-dashboard">Contributors: KL, OP</div>
+      </div>
+
+      <!-- Strategy 5 -->
+      <div class="strategy-card">
+        <h3>Earning</h3>
+        <div class="details">
+          Capital Allocation: 19%<br>
+          Performance: +15.1%
+        </div>
+        <div class="svg-chart">
+          <svg width="240" height="50" viewBox="0 0 240 50" preserveAspectRatio="none">
+            <path d="M 0,45 L 40,40 L 80,30 L 120,20 L 160,10 L 200,5 L 240,0"
+                  fill="none" stroke="#39FF14" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="contributors-dashboard">Contributors: QR, ST</div>
+      </div>
+
+      <!-- Strategy 6 -->
+      <div class="strategy-card">
+        <h3>Secondaries</h3>
+        <div class="details">
+          Capital Allocation: 21%<br>
+          Performance: +2.1%
+        </div>
+        <div class="svg-chart">
+          <svg width="240" height="50" viewBox="0 0 240 50" preserveAspectRatio="none">
+            <path d="M 0,30 L 40,25 L 80,20 L 120,25 L 160,18 L 200,12 L 240,10"
+                  fill="none" stroke="#39FF14" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="contributors-dashboard">Contributors: OP</div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /* Toggles the user menu on/off */
+    function toggleUserMenu() {
+      const userMenu = document.getElementById('userMenu');
+      userMenu.style.display = (userMenu.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>

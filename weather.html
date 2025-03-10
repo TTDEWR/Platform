@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ribot Capital - Weather</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left" onclick="location.href='index.html';">
+      <img src="logo.png" alt="Logo">
+      <div class="company-name">Ribot Capital</div>
+    </div>
+    <div class="header-right">
+      <div class="user-icon" onclick="toggleUserMenu()">TD</div>
+    </div>
+  </header>
+
+  <!-- USER MENU (SIDE MENU) -->
+  <div id="userMenu" class="user-menu">
+    <h3>User Info</h3>
+    <p>Name: TD</p>
+    <h4>Accessible Strategies</h4>
+    <ul>
+      <li onclick="location.href='weather.html';">Weather</li>
+      <!-- Add more strategies if needed -->
+    </ul>
+  </div>
+
+  <!-- WEATHER CONTENT -->
+  <main class="section active">
+    <div class="weather-header">
+      <h2>Weather Strategy Repository</h2>
+      <p>
+        This repository leverages inefficiencies in temperature forecasting to trade weather event probabilities on Kalshi.
+        Browse through our code, data, backtests, front tests, research, and AI insights in a clean, simple layout.
+      </p>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active" data-target="codeTab">Code</div>
+      <div class="tab" data-target="dataTab">Data</div>
+      <div class="tab" data-target="backtestTab">Backtest</div>
+      <div class="tab" data-target="frontTestTab">Front Test</div>
+      <div class="tab" data-target="researchTab">Research</div>
+      <div class="tab" data-target="llmTab">LLM Assist</div>
+    </div>
+
+    <!-- CODE TAB -->
+    <div class="tab-content active" id="codeTab">
+      <!-- Repo Toolbar -->
+      <div class="repo-toolbar">
+        <div class="toolbar-left">
+          <span class="branch-label">Branch:</span>
+          <select id="branchSelect">
+            <option>main</option>
+            <option>dev</option>
+            <option>feature/weather-optim</option>
+          </select>
+        </div>
+        <div class="toolbar-right">
+          <button class="commit-button">Commit Changes</button>
+        </div>
+      </div>
+
+      <!-- Repo View: File Tree & Code Viewer -->
+      <div class="repo-view">
+        <!-- File Tree Panel -->
+        <div class="file-tree">
+          <h3>Repository</h3>
+          <ul>
+            <li><strong>[dir]</strong> src/
+              <ul>
+                <li><strong>[file]</strong> main.py</li>
+                <li><strong>[file]</strong> utils.py</li>
+              </ul>
+            </li>
+            <li><strong>[dir]</strong> tests/
+              <ul>
+                <li><strong>[file]</strong> test_main.py</li>
+              </ul>
+            </li>
+            <li><strong>[file]</strong> README.md</li>
+            <li><strong>[file]</strong> requirements.txt</li>
+            <li><strong>[dir]</strong> data/</li>
+          </ul>
+        </div>
+
+        <!-- Code Viewer Panel -->
+        <div class="code-viewer">
+          <div class="code-header">
+            <span class="file-path">src/main.py</span>
+            <span class="commit-info">Last commit: <strong>[c1a9f3d]</strong> 2 hrs ago</span>
+          </div>
+          <pre class="code-snippet">
+import numpy as np
+
+def optimize_strategy(data, factor=0.95):
+    """
+    Adjust data by factor, add noise, and return adjusted array.
+    This function is crucial for scaling temperature-based signals
+    before final integration into the trading engine.
+    """
+    adjusted = np.array(data) * factor
+    noise = np.random.normal(0, 0.5, len(data))
+    return adjusted + noise
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATA TAB -->
+    <div class="tab-content" id="dataTab">
+      <div class="panel-container">
+        <div class="code-box" style="flex: 1;">
+<pre># Weather Data Sample
+time, temperature, forecast
+1, 72, 71
+2, 74, 73
+3, 75, 76
+4, 77, 78
+5, 79, 80
+</pre>
+        </div>
+        <div class="discussion-box">
+          <h3>Data Notes</h3>
+          <p><b>User1:</b> Missing data in some regions—consider interpolation methods.</p>
+          <p><b>User2:</b> We can add precipitation data for more alpha.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACKTEST TAB -->
+    <div class="tab-content" id="backtestTab">
+      <div class="panel-container">
+        <div class="code-box" style="flex: 1;">
+<pre># Example Backtest Results
+Initial capital: $100,000
+Final capital:   $118,500
+Max drawdown:    5.2%
+Sharpe ratio:    1.45
+Win rate:        62%
+</pre>
+          <!-- Inline Equity Curve Graph -->
+          <div class="svg-chart">
+            <svg width="300" height="100" viewBox="0 0 300 100" preserveAspectRatio="none">
+              <polyline fill="none" stroke="#39FF14" stroke-width="2" points="0,90 50,85 100,80 150,70 200,75 250,65 300,60" />
+            </svg>
+          </div>
+        </div>
+        <div class="discussion-box">
+          <h3>Backtest Discussion</h3>
+          <p><b>User1:</b> Max drawdown is acceptable—try more robust entry points.</p>
+          <p><b>User2:</b> Performance is decent. Possibly reduce weighting for extremes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRONT TEST TAB -->
+    <div class="tab-content" id="frontTestTab">
+      <div class="panel-container">
+        <div class="code-box" style="flex: 1;">
+<pre># Real-time (Front) Test
+Current capital: $120,750
+Open positions:  5
+P/L open trades: +$1,350
+Daily volatility: 2.1%
+</pre>
+          <!-- Inline Real-time P&L Graph -->
+          <div class="svg-chart">
+            <svg width="300" height="100" viewBox="0 0 300 100" preserveAspectRatio="none">
+              <polyline fill="none" stroke="#39FF14" stroke-width="2" points="0,70 50,60 100,65 150,55 200,60 250,50 300,45" />
+            </svg>
+          </div>
+        </div>
+        <div class="discussion-box">
+          <h3>Front Test Feedback</h3>
+          <p><b>User1:</b> Real-time performance matches backtest trends so far.</p>
+          <p><b>User2:</b> Monitor abrupt temperature changes; they may affect volatility.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESEARCH TAB -->
+    <div class="tab-content" id="researchTab">
+      <div class="panel-container" style="align-items: flex-start;">
+        <!-- Research Library Panel -->
+        <div class="code-box" style="flex: 1; min-width: 320px;">
+          <h3>Research Library</h3>
+          <ul style="line-height: 1.8; list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 15px;">
+              <strong>Paper:</strong> <em>Machine Learning for Extreme Weather</em><br>
+              <a href="https://arxiv.org/abs/1234.5678" target="_blank" style="color: #0056b3;">View Paper</a><br>
+              <small>
+                Description: Explores ML algorithms for predicting extreme weather events and quantifying their impact on market volatility.
+              </small>
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>Paper:</strong> <em>Commodity Price & Temperature Correlations</em><br>
+              <a href="https://www.example.com/paper2" target="_blank" style="color: #0056b3;">View Paper</a><br>
+              <small>
+                Description: Investigates relationships between commodity prices and temperature fluctuations to identify trading opportunities.
+              </small>
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>Resource:</strong> NOAA Climate Data Archive<br>
+              <a href="https://www.noaa.gov/climate" target="_blank" style="color: #0056b3;">Visit NOAA</a><br>
+              <small>
+                Description: A comprehensive archive of climate data for historical weather analysis and forecasting.
+              </small>
+            </li>
+            <li style="margin-bottom: 15px;">
+              <strong>Resource:</strong> NASA GISS Data Portal<br>
+              <a href="https://data.giss.nasa.gov/" target="_blank" style="color: #0056b3;">Visit NASA GISS</a><br>
+              <small>
+                Description: Satellite-based climate data essential for advanced weather modeling.
+              </small>
+            </li>
+          </ul>
+          <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
+          <button onclick="toggleAddResource()" style="
+            background-color: #39FF14; 
+            border: none; 
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #000;
+          ">Add New Resource</button>
+
+          <div id="addResourceForm" style="display: none; margin-top: 10px;">
+            <h4>Add Resource</h4>
+            <label>
+              Title:<br>
+              <input type="text" style="width: 100%; margin-top: 4px; padding: 6px; border: 1px solid #ccc; border-radius: 4px;">
+            </label><br><br>
+            <label>
+              URL:<br>
+              <input type="text" style="width: 100%; margin-top: 4px; padding: 6px; border: 1px solid #ccc; border-radius: 4px;">
+            </label><br><br>
+            <label>
+              Description:<br>
+              <textarea style="width: 100%; margin-top: 4px; padding: 6px; border: 1px solid #ccc; border-radius: 4px;" placeholder="Brief explanation of the paper"></textarea>
+            </label><br><br>
+            <button style="background-color: #0056b3; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">Submit</button>
+          </div>
+        </div>
+
+        <!-- Research Brainstorm Panel -->
+        <div class="discussion-box" style="flex: 1; min-width: 320px;">
+          <h3>Research Brainstorm</h3>
+          <p><b>User1:</b> Let’s compare different climate models for better short-term forecasts.</p>
+          <p><b>User2:</b> Detailed studies on precipitation anomalies may reveal new signals.</p>
+          <p><b>User3:</b> Consider time-series deep learning (e.g., GRU or Transformer) for handling sudden shifts.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LLM TAB -->
+    <div class="tab-content" id="llmTab">
+      <div class="panel-container">
+        <div class="code-box" style="width: 100%; border: 1px solid #ccc; border-radius: 5px; background-color: #f4f9ff; padding: 20px;">
+          <h3 style="margin-top: 0;">LLM Code Compliance Check</h3>
+          <p style="line-height: 1.6;">
+            Our integrated LLM (Claude 3.7) has analyzed this repository based on internal guidelines. The following checks were performed:
+          </p>
+          <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
+          <ul style="list-style: none; padding: 0; line-height: 1.8; margin-bottom: 10px;">
+            <li style="margin-bottom: 8px;">
+              <span style="color: green; font-weight: bold; margin-right: 5px;">●</span>
+              <strong>Testing Coverage</strong> <em>(Passed)</em><br>
+              <small style="color: #555;">Basic unit tests exist in <code>tests/</code> with ~70% coverage.</small>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <span style="color: green; font-weight: bold; margin-right: 5px;">●</span>
+              <strong>Documentation</strong> <em>(Passed)</em><br>
+              <small style="color: #555;">Comprehensive docstrings for key functions; README is up-to-date.</small>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <span style="color: green; font-weight: bold; margin-right: 5px;">●</span>
+              <strong>Security Scan</strong> <em>(Passed)</em><br>
+              <small style="color: #555;">No known vulnerabilities detected in core modules.</small>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <span style="color: red; font-weight: bold; margin-right: 5px;">●</span>
+              <strong>Style Guide Compliance</strong> <em>(Failed)</em><br>
+              <small style="color: #555;">
+                Detected inconsistent spacing in <code>test_main.py</code> (4-line spacing instead of 2).<br>
+                <em>Tip:</em> Update your formatter settings to comply with our PEP8 guidelines.
+              </small>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <span style="color: green; font-weight: bold; margin-right: 5px;">●</span>
+              <strong>Resource Usage</strong> <em>(Passed)</em><br>
+              <small style="color: #555;">No large files or excessive logging detected.</small>
+            </li>
+          </ul>
+          <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
+          <p style="margin-bottom: 10px; line-height: 1.6;">
+            <strong>LLM Conclusion:</strong> 4 out of 5 checks passed. However, the <span style="color: red;">Style Guide Compliance</span> issue needs to be resolved before approval.
+          </p>
+          <p style="margin-bottom: 10px; line-height: 1.6;">
+            <strong>General Tips:</strong> Consider implementing automated linting and formatting (e.g., using Black or Flake8) to maintain consistency. Regularly update your documentation and include detailed unit tests to further improve repository quality.
+          </p>
+          <button style="background-color: #39FF14; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; color: #000;" disabled>
+            Approve Implementation
+          </button>
+          <span style="color: #999; margin-left: 10px;">(Disabled until style issues are resolved)</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Tab functionality
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.getAttribute('data-target')).classList.add('active');
+      });
+    });
+
+    // Toggle user menu
+    function toggleUserMenu() {
+      const userMenu = document.getElementById('userMenu');
+      userMenu.style.display = (userMenu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Toggle Add Resource Form
+    function toggleAddResource() {
+      const form = document.getElementById('addResourceForm');
+      form.style.display = (form.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
