@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Markets</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+      background-color: #1d1d1d;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #333;
+    }
+
+    th {
+      background-color: #222;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #1a1a1a;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn:disabled {
+      background: #444;
+      cursor: not-allowed;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📊 My Market Requests</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Category</th>
+          <th>Quote</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CPI > 3% in July</td>
+          <td>Economics</td>
+          <td>Yes @ 42 / No @ 58</td>
+          <td><span style="color: #39FF14;">Quoted</span></td>
+          <td><button class="btn">Trade</button></td>
+        </tr>
+        <tr>
+          <td>Yankees Win AL East</td>
+          <td>Sports</td>
+          <td>–</td>
+          <td><span style="color: orange;">Pending</span></td>
+          <td><button class="btn" disabled>Awaiting Quote</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a href="index.html" class="btn back-button">⬅ Back to Dashboard</a>
+  </div>
+</body>
+</html>
