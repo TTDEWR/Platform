@@ -18,7 +18,6 @@
       z-index: 1000;
     }
 
-    /* Generic styles for strategy cards */
     .strategy-card {
       position: relative;
       background-color: #222;
@@ -39,8 +38,6 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
-
-    /* Active strategy (Weather) styling */
     .strategy-card.active-strategy {
       border: 3px solid #39FF14;
       box-shadow: 0 0 15px #39FF14;
@@ -48,16 +45,13 @@
     }
     .strategy-card.active-strategy:hover {
       transform: translateY(-5px) scale(1.02);
-      box-shadow:
-        0 8px 20px rgba(0,0,0,0.4),
-        0 0 15px #39FF14;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 15px #39FF14;
     }
 
     .details p {
       margin: 0;
       line-height: 1.5;
     }
-
     .extra-info {
       opacity: 0;
       max-height: 0;
@@ -72,13 +66,24 @@
       opacity: 1 !important;
       max-height: 100px !important;
     }
+    .button-group, .nav-buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .nav-buttons a button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header class="header">
     <div class="header-left" onclick="location.href='index.html';">
-      <img src="logo.png" alt="Logo" style="max-height: 40px; margin-right: 10px;">
+      <img src="logo.png" alt="Logo" style="max-height: 70px; margin-right: 10px;">
       <div class="company-name">Ribot Capital</div>
     </div>
     <div class="header-right">
@@ -86,7 +91,6 @@
     </div>
   </header>
 
-  <!-- USER MENU (SIDE MENU) -->
   <div id="userMenu" class="user-menu">
     <h3>User Info</h3>
     <div class="profile-info">
@@ -100,41 +104,57 @@
     </ul>
   </div>
 
-  <!-- MAIN CONTENT -->
   <main class="section active">
-    <!-- Two big buttons at the top -->
     <div class="button-group">
       <button class="big-button active" disabled>Implemented Strategies</button>
       <button class="big-button" onclick="location.href='wip.html';">Work in Progress</button>
     </div>
 
-    <!-- Add-on Buttons -->
-    <div style="text-align: center; margin-top: 30px;">
-      <a href="markets.html">
-        <button style="margin: 5px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px;">
-          📊 View My Markets
-        </button>
-      </a>
-      <a href="quote_manager.html">
-        <button style="margin: 5px; padding: 10px 20px; background: #17a2b8; color: white; border: none; border-radius: 5px;">
-          📥 Quote Manager
-        </button>
-      </a>
-      <a href="trade.html">
-        <button style="margin: 5px; padding: 10px 20px; background: #ffc107; color: black; border: none; border-radius: 5px;">
-          🧾 Trade
-        </button>
-      </a>
-      <a href="live_markets.html">
-        <button style="margin: 5px; padding: 10px 20px; background: #6f42c1; color: white; border: none; border-radius: 5px;">
-          📈 Live Markets
-        </button>
-      </a>
+    <!-- New Navigation Buttons -->
+    <div class="nav-buttons">
+      <a href="markets.html"><button style="background:#007bff;color:white;">📊 View My Markets</button></a>
+      <a href="quote_manager.html"><button style="background:#17a2b8;color:white;">📥 Quote Manager</button></a>
+      <a href="trade.html"><button style="background:#ffc107;color:black;">🧾 Trade</button></a>
+      <a href="live_markets.html"><button style="background:#6f42c1;color:white;">📈 Live Markets</button></a>
     </div>
 
-    <!-- CARD CONTAINER -->
     <div class="card-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-      <!-- Strategy cards remain as is -->
+      <div class="strategy-card">
+        <h3>Volatility</h3>
+        <div class="details">Capital Allocation: 9%<br>Performance: +3.8%</div>
+        <div class="svg-chart"><svg width="240" height="50"><path d="M 0,30 L 40,25 L 80,20 L 120,25 L 160,15 L 200,20 L 240,10" fill="none" stroke="#39FF14" stroke-width="3"/></svg></div>
+        <div class="contributors-dashboard">Contributors: AB, CD</div>
+      </div>
+      <div class="strategy-card">
+        <h3>SAT</h3>
+        <div class="details">Capital Allocation: 7%<br>Performance: -1.8%</div>
+        <div class="svg-chart"><svg width="240" height="50"><path d="M 0,20 L 40,25 L 80,15 L 120,18 L 160,35 L 200,25 L 240,40" fill="none" stroke="#39FF14" stroke-width="3"/></svg></div>
+        <div class="contributors-dashboard">Contributors: EF, IJ</div>
+      </div>
+      <div class="strategy-card active-strategy" onclick="location.href='weather.html';">
+        <h3>Weather</h3>
+        <div class="details">Capital Allocation: 8%<br>Performance: +1.4%</div>
+        <div class="svg-chart"><svg width="240" height="50"><path d="M 0,35 L 40,30 L 80,25 L 120,28 L 160,20 L 200,15 L 240,10" fill="none" stroke="#39FF14" stroke-width="3"/></svg></div>
+        <div class="contributors-dashboard">Contributors: GH, TD</div>
+      </div>
+      <div class="strategy-card">
+        <h3>Backbone</h3>
+        <div class="details">Capital Allocation: 36%<br>Performance: +1.4%</div>
+        <div class="svg-chart"><svg width="240" height="50"><path d="M 0,25 L 40,20 L 80,25 L 120,24 L 160,25 L 200,23 L 240,20" fill="none" stroke="#39FF14" stroke-width="3"/></svg></div>
+        <div class="contributors-dashboard">Contributors: KL, OP</div>
+      </div>
+      <div class="strategy-card">
+        <h3>Earning</h3>
+        <div class="details">Capital Allocation: 19%<br>Performance: +15.1%</div>
+        <div class="svg-chart"><svg width="240" height="50"><path d="M 0,45 L 40,40 L 80,30 L 120,20 L 160,10 L 200,5 L 240,0" fill="none" stroke="#39FF14" stroke-width="3"/></svg></div>
+        <div class="contributors-dashboard">Contributors: QR, ST</div>
+      </div>
+      <div class="strategy-card">
+        <h3>Secondaries</h3>
+        <div class="details">Capital Allocation: 21%<br>Performance: +2.1%</div>
+        <div class="svg-chart"><svg width="240" height="50"><path d="M 0,30 L 40,25 L 80,20 L 120,25 L 160,18 L 200,12 L 240,10" fill="none" stroke="#39FF14" stroke-width="3"/></svg></div>
+        <div class="contributors-dashboard">Contributors: OP</div>
+      </div>
     </div>
   </main>
 
