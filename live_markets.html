@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Markets</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: #111; color: #fff; font-family: sans-serif; padding: 30px; }
+    h2 { text-align: center; }
+    .market-box {
+      background: #1e1e1e;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+    .header { display: flex; justify-content: space-between; align-items: center; }
+    .price-bar {
+      height: 10px; border-radius: 5px;
+      background: linear-gradient(to right, #39FF14 42%, #444 0%);
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>📈 Live Market Board</h2>
+  <div class="market-box">
+    <div class="header">
+      <div><strong>CPI > 3% in July</strong> (Economics)</div>
+      <div>Yes @ 42 / No @ 58</div>
+    </div>
+    <div class="price-bar" style="background: linear-gradient(to right, #39FF14 42%, #444 0%)"></div>
+  </div>
+  <div class="market-box">
+    <div class="header">
+      <div><strong>Trump wins Texas</strong> (Politics)</div>
+      <div>Yes @ 68 / No @ 32</div>
+    </div>
+    <div class="price-bar" style="background: linear-gradient(to right, #39FF14 68%, #444 0%)"></div>
+  </div>
+</body>
+</html>
