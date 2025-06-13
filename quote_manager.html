@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quote Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: #111; color: #fff; font-family: sans-serif; margin: 0; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; background: #1f1f1f; border-radius: 8px; overflow: hidden; }
+    th, td { padding: 12px; text-align: left; border-bottom: 1px solid #333; }
+    th { background: #222; }
+    tr:hover { background: #1a1a1a; }
+    input, button { padding: 6px; border-radius: 4px; border: none; }
+    input { width: 80px; background: #2a2a2a; color: white; }
+    button { background: #28a745; color: white; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>📥 Quote Manager</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Category</th>
+        <th>Yes Price</th>
+        <th>No Price</th>
+        <th>Submit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>CPI > 3% in July</td>
+        <td>Economics</td>
+        <td><input value="42"></td>
+        <td><input value="58"></td>
+        <td><button>Quote</button></td>
+      </tr>
+      <tr>
+        <td>Fed cuts by September</td>
+        <td>Economics</td>
+        <td><input value="51"></td>
+        <td><input value="49"></td>
+        <td><button>Quote</button></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
