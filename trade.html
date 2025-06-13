@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trade Market</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: #111; color: #fff; font-family: sans-serif; padding: 40px; }
+    .box { background: #1f1f1f; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; }
+    h2 { text-align: center; }
+    label { display: block; margin-top: 1em; }
+    select, input, button {
+      width: 100%; padding: 10px; border-radius: 5px;
+      margin-top: 6px; border: none; background: #2a2a2a; color: white;
+    }
+    button { background-color: #28a745; margin-top: 20px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>🧾 Trade: CPI > 3% in July</h2>
+    <form onsubmit="event.preventDefault(); alert('Trade placed!');">
+      <label>Side</label>
+      <select>
+        <option>Buy YES @ 42</option>
+        <option>Sell NO @ 58</option>
+      </select>
+      <label>Amount ($)</label>
+      <input type="number" placeholder="e.g. 100">
+      <button type="submit">Execute Trade</button>
+    </form>
+  </div>
+</body>
+</html>
